@@ -5,6 +5,8 @@
 """
 
 # (הקוד הארוך מההודעות הקודמות שלי עם כל הפונקציות, LangGraph, Scheduler וכו')
+from typing import Dict, Any   # הוסף את זה למעלה אם לא קיים
+
 def check_ma_breakout(ticker: str) -> Dict[str, Any]:
     """בודק פריצה קרובה של ממוצע נע 150 יום"""
     try:
