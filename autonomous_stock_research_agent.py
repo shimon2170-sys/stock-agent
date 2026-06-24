@@ -46,16 +46,14 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
         ma_section += "לא נמצאו מניות מתקרבות לפריצה היום.\n"
     
     report += ma_section
-  
-    US_TICKERS =    
-    # Tech & AI
-    "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA", "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
-    # Software & Cloud
-    "CRM", "NOW", "SNOW", "DDOG", "NET", "MDB", "PLTR", "CRWD", "PANW", "ZS", "AI", "UPST", "SOUN", "PATH", "C3AI",
-    # Fintech & E-commerce
-    "COIN", "HOOD", "RBLX", "UBER", "LYFT", "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
-    # Other Popular
-    "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
-
+      US_TICKERS = [
+        "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA",
+        "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
+        "CRM", "NOW", "SNOW", "DDOG", "NET", "MDB", "PLTR", "CRWD", "PANW", "ZS",
+        "AI", "UPST", "SOUN", "PATH", "C3AI", "COIN", "HOOD", "RBLX", "UBER", "LYFT",
+        "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
+        "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
+    ]
     
-    report += ma_section
+    
+   
