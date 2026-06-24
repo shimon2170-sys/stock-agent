@@ -47,7 +47,7 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
     
     report += ma_section
   
-        US_TICKERS = [
+    US_TICKERS =    
     # Tech & AI
     "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA", "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
     # Software & Cloud
@@ -56,6 +56,6 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
     "COIN", "HOOD", "RBLX", "UBER", "LYFT", "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
     # Other Popular
     "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
-]
+
     
     report += ma_section
