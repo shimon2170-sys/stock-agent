@@ -31,10 +31,14 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
     ma_section = "\n## 📈 מניות מתקרבות לפריצה (150 יום MA)\n\n"
     ma_section += "| מניה | מחיר נוכחי | MA150 | % | סטטוס |\n"
     ma_section += "|------|-------------|--------|---|--------|\n"
-    
-    for ticker in ISRAELI_TICKERS + ["AAPL", "TSLA", "NVDA", "MSFT"]:  # הוסף יותר אם תרצה
-        ma_data = check_ma_breakout(ticker)
-        if ma_data.get("near_breakout"):
+    US_TICKERS = [
+    "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA",
+    "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
+    "CRM", "NOW", "SNOW", "DDOG", "NET", "MDB", "PLTR", "CRWD", "PANW", "ZS",
+    "AI", "UPST", "SOUN", "PATH", "C3AI", "COIN", "HOOD", "RBLX", "UBER", "LYFT",
+    "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
+    "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS"
+]
             ma_section += f"| {ma_data['ticker']} | {ma_data['current_price']} | {ma_data['ma150']} | {ma_data['percent_to_ma']}% | **קרוב לפריצה** |\n"
     
     report += ma_section
