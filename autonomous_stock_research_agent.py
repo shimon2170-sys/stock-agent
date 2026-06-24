@@ -29,8 +29,16 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
         return {"ticker": ticker, "status": "שגיאה"}
             # סעיף פריצות MA150
        # ====================== MA150 Breakout Section ======================
-        # ====================== MA150 Breakout Table ======================
-       # ====================== US MA150 Breakout ======================
+    # ====================== US MA150 Breakout ======================
+    US_TICKERS = [
+        "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA",
+        "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
+        "CRM", "NOW", "SNOW", "DDOG", "NET", "MDB", "PLTR", "CRWD", "PANW", "ZS",
+        "AI", "UPST", "SOUN", "PATH", "C3AI", "COIN", "HOOD", "RBLX", "UBER", "LYFT",
+        "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
+        "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
+    ]
+
     ma_section = "\n## 📈 מניות אמריקאיות מתקרבות לפריצה (150 יום MA)\n\n"
     ma_section += "| Ticker | מחיר | MA150 | % | סטטוס |\n"
     ma_section += "|--------|-------|-------|---|--------|\n"
@@ -42,11 +50,3 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
             ma_section += f"| {ma_data['ticker']} | {ma_data['current_price']} | {ma_data['ma150']} | {ma_data['percent_to_ma']}% | {status} |\n"
     
     report += ma_section
-          US_TICKERS = [
-        "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA",
-        "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
-        "CRM", "NOW", "SNOW", "DDOG", "NET", "MDB", "PLTR", "CRWD", "PANW", "ZS",
-        "AI", "UPST", "SOUN", "PATH", "C3AI", "COIN", "HOOD", "RBLX", "UBER", "LYFT",
-        "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
-        "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
-    ]
