@@ -29,13 +29,33 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
         return {"ticker": ticker, "status": "שגיאה"}
             # סעיף פריצות MA150
        # ====================== MA150 Breakout Section ======================
-    ma_section = "\n## 📈 מניות אמריקאיות שמתקרבות לפריצה (150 יום MA)\n\n"
-    ma_section += "| Ticker | מחיר | MA150 | % | סטטוס |\n"
-    ma_section += "|--------|-------|-------|---|--------|\n"
+        # ====================== MA150 Breakout Table ======================
+    ma_section = "\n## 📈 מניות אמריקאיות מתקרבות/שוברות MA150\n\n"
+    ma_section += "| Ticker | מחיר נוכחי | MA150 | % ל-MA | סטטוס |\n"
+    ma_section += "|--------|-------------|--------|--------|--------|\n"
     
+    breakout_count = 0
     for ticker in US_TICKERS:
         ma_data = check_ma_breakout(ticker)
         if ma_data.get("near_breakout"):
-            ma_section += f"| {ma_data['ticker']} | {ma_data['current_price']} | {ma_data['ma150']} | {ma_data['percent_to_ma']}% | **קרוב לפריצה** |\n"
+            status = "**קרוב לפריצה**" if ma_data["percent_to_ma"] > 98 else "מתקרב"
+            ma_section += f"| {ma_data['ticker']} | ${ma_data['current_price']} | ${ma_data['ma150']} | {ma_data['percent_to_ma']}% | {status} |\n"
+            breakout_count += 1
+    
+    if breakout_count == 0:
+        ma_section += "לא נמצאו מניות מתקרבות לפריצה היום.\n"
+    
+    report += ma_section
+  
+        US_TICKERS = [
+    # Tech & AI
+    "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA", "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
+    # Software & Cloud
+    "CRM", "NOW", "SNOW", "DDOG", "NET", "MDB", "PLTR", "CRWD", "PANW", "ZS", "AI", "UPST", "SOUN", "PATH", "C3AI",
+    # Fintech & E-commerce
+    "COIN", "HOOD", "RBLX", "UBER", "LYFT", "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
+    # Other Popular
+    "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
+]
     
     report += ma_section
