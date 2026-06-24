@@ -46,7 +46,7 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
         ma_section += "לא נמצאו מניות מתקרבות לפריצה היום.\n"
     
     report += ma_section
-      US_TICKERS = [
+         US_TICKERS = [
         "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA",
         "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
         "CRM", "NOW", "SNOW", "DDOG", "NET", "MDB", "PLTR", "CRWD", "PANW", "ZS",
@@ -54,6 +54,5 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
         "DASH", "ABNB", "SHOP", "SQ", "PYPL", "ROKU", "DOCU", "TWLO", "OKTA",
         "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
     ]
-    
     
    
