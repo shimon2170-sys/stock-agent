@@ -29,7 +29,7 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
         return {"ticker": ticker, "status": "שגיאה"}
             # סעיף פריצות MA150
        # ====================== MA150 Breakout Section ======================
-    # ====================== US MA150 Breakout ======================
+       # ====================== US MA150 Breakout (Improved) ======================
     US_TICKERS = [
         "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "AVGO", "TSLA",
         "AMD", "INTC", "SMCI", "ARM", "QCOM", "TXN", "MU",
@@ -39,14 +39,21 @@ def check_ma_breakout(ticker: str) -> Dict[str, Any]:
         "WDAY", "TEAM", "ADBE", "INTU", "CDNS", "ANSS", "ORCL", "IBM", "CSCO", "AMAT", "KLAC", "ASML", "TTD", "HUBS"
     ]
 
-    ma_section = "\n## 📈 מניות אמריקאיות מתקרבות לפריצה (150 יום MA)\n\n"
-    ma_section += "| Ticker | מחיר | MA150 | % | סטטוס |\n"
-    ma_section += "|--------|-------|-------|---|--------|\n"
+    ma_section = "\n## 📈 מניות אמריקאיות מתקרבות/שוברות MA150\n\n"
+    ma_section += "| Ticker | מחיר | MA150 | % מ-MA | מרחק | סטטוס |\n"
+    ma_section += "|--------|-------|-------|--------|-------|--------|\n"
     
     for ticker in US_TICKERS:
         ma_data = check_ma_breakout(ticker)
         if ma_data.get("near_breakout"):
-            status = "**קרוב לפריצה**"
-            ma_section += f"| {ma_data['ticker']} | {ma_data['current_price']} | {ma_data['ma150']} | {ma_data['percent_to_ma']}% | {status} |\n"
+            pct = ma_data['percent_to_ma']
+            distance = round(pct - 100, 1)
+            if pct >= 99:
+                status = "**שובר!**"
+            elif pct >= 97:
+                status = "**קרוב מאוד**"
+            else:
+                status = "מתקרב"
+            ma_section += f"| {ma_data['ticker']} | {ma_data['current_price']} | {ma_data['ma150']} | {pct}% | {distance}% | {status} |\n"
     
     report += ma_section
